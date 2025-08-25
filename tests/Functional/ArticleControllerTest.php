@@ -275,10 +275,10 @@ class ArticleControllerTest extends WebTestCase
             [__DIR__ . '/Fixtures/ArticleFixtures.yaml']
         );
 
-        $aticle = self::getContainer()->get(ArticleRepository::class)
+        $article = self::getContainer()->get(ArticleRepository::class)
             ->findOneBy(['title' => 'Article 1']);
 
-        $this->client->request('PATCH', '/api/admin/articles/{getId()}', [
+        $this->client->request('PATCH', "/api/admin/articles/{$article->getId()}", [
             'title' => 'Article modifié',
         ]);
 
